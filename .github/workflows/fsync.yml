@@ -14,5 +14,7 @@ jobs:
       steps:
         - name: Checkout Repository
           uses: actions/checkout@v2
+          with:
+            token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         - name: gh_fsync
           uses: gleich/gh_fsync@master
