@@ -1,0 +1,18 @@
+name: fsync
+
+on:
+  push:
+    branches:
+      - main
+    #paths:
+    #  - requirement.txt
+    #  - runtime.txt
+
+jobs:
+  file_sync:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout Repository
+          uses: actions/checkout@v2
+        - name: gh_fsync
+          uses: gleich/gh_fsync@master
