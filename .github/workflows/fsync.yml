@@ -4,13 +4,21 @@ on:
   push:
     branches:
       - main
-    #paths:
-    #  - requirement.txt
-    #  - runtime.txt
+    paths:
+      - requirement.txt
+      - runtime.txt
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
   file_sync:
       runs-on: ubuntu-latest
+      
+      # Assigning permissions to jobs  # https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs
+      # Modify the default permissions granted to GITHUB_TOKEN.
+      permissions: write-all
+      
       steps:
         - name: Checkout Repository
           uses: actions/checkout@v2
